@@ -1,0 +1,72 @@
+{
+    "ecs": {
+        "version": "9.1.0"
+    },
+    "end_of_life": {
+        "aliases": [
+            "ubuntu-linux"
+        ],
+        "category": "os",
+        "identifiers": [
+            {
+                "id": "cpe:/o:canonical:ubuntu_linux",
+                "type": "cpe"
+            }
+        ],
+        "label": "Ubuntu",
+        "labels": {
+            "discontinued": "Discontinued",
+            "eoas": "Hardware & Maintenance",
+            "eoes": "Extended Security Maintenance",
+            "eol": "Maintenance & Security Support"
+        },
+        "links": {
+            "html": "https://endoflife.date/ubuntu",
+            "icon": "https://simpleicons.org/icons/ubuntu.svg",
+            "releasePolicy": "https://wiki.ubuntu.com/Releases"
+        },
+        "name": "ubuntu",
+        "releases": [
+            {
+                "codename": "Jammy Jellyfish",
+                "custom": {
+                    "chromeVersion": "M136",
+                    "nodeVersion": "22.15"
+                },
+                "discontinuedFrom": "2027-04-01",
+                "eoasFrom": "2024-09-30",
+                "eoesFrom": "2032-04-09",
+                "eolFrom": "2027-04-01",
+                "isDiscontinued": false,
+                "isEoas": false,
+                "isEoes": true,
+                "isEol": false,
+                "isLts": true,
+                "isMaintained": true,
+                "label": "22.04 'Jammy Jellyfish' (LTS)",
+                "latest": {
+                    "date": "2022-04-21",
+                    "link": "https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes/",
+                    "name": "22.04.2"
+                },
+                "ltsFrom": "2022-04-21",
+                "name": "22.04",
+                "releaseDate": "2022-04-21"
+            }
+        ],
+        "tags": [
+            "canonical",
+            "os"
+        ],
+        "versionCommand": "lsb_release --release"
+    },
+    "event": {
+        "category": [
+            "vulnerability"
+        ],
+        "kind": "enrichment",
+        "type": [
+            "info"
+        ]
+    }
+}

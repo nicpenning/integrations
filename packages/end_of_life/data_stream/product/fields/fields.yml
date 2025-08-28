@@ -1,0 +1,133 @@
+- name: end_of_life
+  type: group
+  description: All fields related to the End of Life Products.
+  fields:
+    - name: name
+      type: keyword
+      description: The short name of the product or project.
+    - name: label
+      type: keyword
+      description: The display label for the product or project.
+    - name: aliases
+      type: keyword
+      description: List of alternative names or aliases.
+    - name: category
+      type: keyword
+      description: The category of the product (e.g., os).
+    - name: tags
+      type: keyword
+      description: List of tags associated with the product.
+    - name: versionCommand
+      type: keyword
+      description: Command to get the version of the product.
+    - name: identifiers
+      type: group
+      description: List of identifiers for the product.
+      fields:
+        - name: id
+          type: keyword
+          description: Identifier value (e.g., CPE).
+        - name: type
+          type: keyword
+          description: Type of identifier (e.g., cpe).
+    - name: labels
+      type: group
+      description: Custom labels for product lifecycle stages.
+      fields:
+        - name: eoas
+          type: keyword
+          description: Label for Hardware & Maintenance.
+        - name: discontinued
+          type: keyword
+          description: Label for Discontinued.
+        - name: eol
+          type: keyword
+          description: Label for Maintenance & Security Support.
+        - name: eoes
+          type: keyword
+          description: Label for Extended Security Maintenance.
+    - name: links
+      type: group
+      description: Links related to the product.
+      fields:
+        - name: icon
+          type: keyword
+          description: URL to the product icon.
+        - name: html
+          type: keyword
+          description: Main product page URL.
+        - name: releasePolicy
+          type: keyword
+          description: URL to the release policy.
+    - name: releases
+      type: nested
+      description: List of releases for the product.
+      fields:
+        - name: name
+          type: keyword
+          description: Release version name.
+        - name: codename
+          type: keyword
+          description: Codename of the release.
+        - name: label
+          type: keyword
+          description: Display label for the release.
+        - name: releaseDate
+          type: date
+          description: Release date.
+        - name: isLts
+          type: boolean
+          description: Whether the release is LTS.
+        - name: ltsFrom
+          type: date
+          description: LTS start date.
+        - name: isEoas
+          type: boolean
+          description: Whether the release is in Hardware & Maintenance.
+        - name: eoasFrom
+          type: date
+          description: Hardware & Maintenance start date.
+        - name: isEol
+          type: boolean
+          description: Whether the release is in Maintenance & Security Support.
+        - name: eolFrom
+          type: date
+          description: Maintenance & Security Support start date.
+        - name: isDiscontinued
+          type: boolean
+          description: Whether the release is discontinued.
+        - name: discontinuedFrom
+          type: date
+          description: Discontinued start date.
+        - name: isEoes
+          type: boolean
+          description: Whether the release is in Extended Security Maintenance.
+        - name: eoesFrom
+          type: date
+          description: Extended Security Maintenance start date.
+        - name: isMaintained
+          type: boolean
+          description: Whether the release is maintained.
+        - name: latest
+          type: group
+          description: Latest release details.
+          fields:
+            - name: name
+              type: keyword
+              description: Latest release name.
+            - name: date
+              type: date
+              description: Latest release date.
+            - name: link
+              type: keyword
+              description: URL to the latest release notes.
+        - name: custom
+          type: group
+          description: Custom fields for the release.
+          fields:
+            - name: chromeVersion
+              type: keyword
+              description: Chrome version for the release.
+            - name: nodeVersion
+              type: keyword
+              description: Node.js version for the release.

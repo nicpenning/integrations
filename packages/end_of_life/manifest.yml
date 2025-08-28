@@ -1,0 +1,40 @@
+format_version: 3.0.3
+name: end_of_life
+title: "endoflife.date"
+version: "0.1.0"
+description: "Keeping track of end of life products is a critical part of vulnerability management and asset management programs. This package provides a simple way to ingest and visualize end of life product data."
+type: integration
+categories:
+  - security
+conditions:
+  kibana:
+    version: "^8.13.0 || ^9.0.0"
+  elastic:
+    subscription: "basic"
+#screenshots:
+#  - src: /img/end_of_life.png
+#    title: Dashboard for End of Life Products
+#    size: 600x600
+#    type: image/png
+icons:
+  - src: "/img/icon-threat-detection-64-color.svg"
+    type: "image/svg+xml"
+policy_templates:
+  - name: end_of_life
+    title: End of Life Products List
+    description: Ingest the endoflife.date products with Elastic Agent.
+    inputs:
+      - type: cel
+        title: "Collect endoflife.date products via API"
+        description: "Ingest the endoflife.date products with Elastic Agent."
+        vars:
+          - name: enable_request_tracer
+            type: bool
+            title: Enable request tracing
+            multi: false
+            required: false
+            show_user: false
+            description: The request tracer logs requests and responses to the agent's local file-system for debugging configurations. Enabling this request tracing compromises security and should only be used for debugging. See [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-httpjson.html#_request_tracer_filename) for details.
+owner:
+  github: elastic/security-service-integrations
+  type: community

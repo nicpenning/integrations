@@ -1,0 +1,374 @@
+{
+    "attributes": {
+        "controlGroupInput": {
+            "chainingSystem": "HIERARCHICAL",
+            "controlStyle": "oneLine",
+            "ignoreParentSettingsJSON": {
+                "ignoreFilters": false,
+                "ignoreQuery": false,
+                "ignoreTimerange": false,
+                "ignoreValidations": false
+            },
+            "panelsJSON": {
+                "614f763e-e095-4003-97c0-d29b0c4b68b1": {
+                    "explicitInput": {
+                        "dataViewId": "logs-*",
+                        "exclude": false,
+                        "existsSelected": false,
+                        "fieldName": "end_of_life.release.isEol",
+                        "searchTechnique": "prefix",
+                        "selectedOptions": [],
+                        "singleSelect": true,
+                        "sort": {
+                            "by": "_count",
+                            "direction": "desc"
+                        },
+                        "title": "EoL?"
+                    },
+                    "grow": false,
+                    "order": 1,
+                    "type": "optionsListControl",
+                    "width": "small"
+                },
+                "9eb2cf80-0d8e-4c25-b961-2af1ed6039ef": {
+                    "explicitInput": {
+                        "dataViewId": "logs-*",
+                        "exclude": false,
+                        "existsSelected": false,
+                        "fieldName": "end_of_life.label",
+                        "searchTechnique": "wildcard",
+                        "selectedOptions": [],
+                        "sort": {
+                            "by": "_count",
+                            "direction": "desc"
+                        },
+                        "title": "Product"
+                    },
+                    "grow": false,
+                    "order": 0,
+                    "type": "optionsListControl",
+                    "width": "small"
+                }
+            },
+            "showApplySelections": false
+        },
+        "description": "This is a high level view of the End of Life product data from: https://endoflife.date.",
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "query": {
+                    "language": "kuery",
+                    "query": ""
+                }
+            }
+        },
+        "optionsJSON": {
+            "hidePanelTitles": false,
+            "syncColors": false,
+            "syncCursor": true,
+            "syncTooltips": false,
+            "useMargins": true
+        },
+        "panelsJSON": [
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-65a12619-137f-4b54-8364-d921292defa6",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {
+                                        "65a12619-137f-4b54-8364-d921292defa6": {
+                                            "columnOrder": [
+                                                "518fd6ef-72bb-43f6-aad1-d75486ff4e15",
+                                                "ac5ea6c3-44a7-4e25-95f1-7a88c572499a"
+                                            ],
+                                            "columns": {
+                                                "518fd6ef-72bb-43f6-aad1-d75486ff4e15": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Unique EoL Products",
+                                                    "operationType": "unique_count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "sourceField": "end_of_life.name"
+                                                },
+                                                "ac5ea6c3-44a7-4e25-95f1-7a88c572499a": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "end_of_life.release.isEol : true "
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Unique EoL Versions",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "sourceField": "___records___"
+                                                }
+                                            },
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "indexPatternRefs": [
+                                        {
+                                            "id": "logs-*",
+                                            "timeField": "@timestamp",
+                                            "title": "logs-*"
+                                        }
+                                    ],
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": "event.dataset : \"end_of_life.product\""
+                            },
+                            "visualization": {
+                                "layerId": "65a12619-137f-4b54-8364-d921292defa6",
+                                "layerType": "data",
+                                "metricAccessor": "518fd6ef-72bb-43f6-aad1-d75486ff4e15",
+                                "secondaryMetricAccessor": "ac5ea6c3-44a7-4e25-95f1-7a88c572499a",
+                                "secondaryTrend": {
+                                    "type": "none"
+                                },
+                                "showBar": false
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsMetric"
+                    },
+                    "enhancements": {
+                        "dynamicActions": {
+                            "events": []
+                        }
+                    },
+                    "filters": [],
+                    "query": {
+                        "language": "kuery",
+                        "query": "event.dataset : \"end_of_life.product\""
+                    },
+                    "syncColors": false,
+                    "syncCursor": true,
+                    "syncTooltips": false
+                },
+                "gridData": {
+                    "h": 5,
+                    "i": "dbd0cc83-ae3c-4250-b1f2-8a0d40918c62",
+                    "w": 12,
+                    "x": 0,
+                    "y": 0
+                },
+                "panelIndex": "dbd0cc83-ae3c-4250-b1f2-8a0d40918c62",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-27f63169-95b5-41f5-adcd-5bc4f1bd002d",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "27f63169-95b5-41f5-adcd-5bc4f1bd002d": {
+                                            "columnOrder": [
+                                                "e37b2b5f-d9ea-4aaa-9e4b-792ad04b93d6",
+                                                "eb9e1bf6-f67b-473c-814b-9d1016635c8c"
+                                            ],
+                                            "columns": {
+                                                "e37b2b5f-d9ea-4aaa-9e4b-792ad04b93d6": {
+                                                    "customLabel": true,
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Product",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "exclude": [],
+                                                        "excludeIsRegex": false,
+                                                        "include": [],
+                                                        "includeIsRegex": false,
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "eb9e1bf6-f67b-473c-814b-9d1016635c8c",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": true,
+                                                        "parentFormat": {
+                                                            "id": "terms"
+                                                        },
+                                                        "size": 1000
+                                                    },
+                                                    "sourceField": "end_of_life.label"
+                                                },
+                                                "eb9e1bf6-f67b-473c-814b-9d1016635c8c": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Total EoL Versions",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": false
+                                                    },
+                                                    "sourceField": "___records___"
+                                                }
+                                            },
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": "event.dataset: \"end_of_life.product\"  and end_of_life.release.isEol: true"
+                            },
+                            "visualization": {
+                                "columns": [
+                                    {
+                                        "columnId": "e37b2b5f-d9ea-4aaa-9e4b-792ad04b93d6"
+                                    },
+                                    {
+                                        "columnId": "eb9e1bf6-f67b-473c-814b-9d1016635c8c"
+                                    }
+                                ],
+                                "layerId": "27f63169-95b5-41f5-adcd-5bc4f1bd002d",
+                                "layerType": "data"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsDatatable"
+                    },
+                    "enhancements": {
+                        "dynamicActions": {
+                            "events": []
+                        }
+                    },
+                    "filters": [],
+                    "query": {
+                        "language": "kuery",
+                        "query": "event.dataset: \"end_of_life.product\"  and end_of_life.release.isEol: true"
+                    },
+                    "syncColors": false,
+                    "syncCursor": true,
+                    "syncTooltips": false
+                },
+                "gridData": {
+                    "h": 16,
+                    "i": "d006afaa-9bc9-4b88-8746-133b71417c86",
+                    "w": 12,
+                    "x": 0,
+                    "y": 5
+                },
+                "panelIndex": "d006afaa-9bc9-4b88-8746-133b71417c86",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "savedObjectId": "73a0d9c1-718e-43c6-b1f3-99062a2d6615"
+                },
+                "gridData": {
+                    "h": 21,
+                    "i": "467a7943-c3c4-4db4-a127-61f2cdccd33e",
+                    "w": 36,
+                    "x": 12,
+                    "y": 0
+                },
+                "panelIndex": "467a7943-c3c4-4db4-a127-61f2cdccd33e",
+                "panelRefName": "panel_467a7943-c3c4-4db4-a127-61f2cdccd33e",
+                "type": "search"
+            }
+        ],
+        "timeRestore": false,
+        "title": "[End of Life] Products",
+        "version": 3
+    },
+    "coreMigrationVersion": "8.8.0",
+    "created_at": "2025-08-28T21:15:25.039Z",
+    "created_by": "u_mGBROF_q5bmFCATbLXAcCwKa0k8JvONAwSruelyKA5E_0",
+    "id": "end_of_life-4bc5f3f7-66bd-489c-9ee8-64cd5a4efa19",
+    "references": [
+        {
+            "id": "logs-*",
+            "name": "dbd0cc83-ae3c-4250-b1f2-8a0d40918c62:indexpattern-datasource-layer-65a12619-137f-4b54-8364-d921292defa6",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "d006afaa-9bc9-4b88-8746-133b71417c86:indexpattern-datasource-layer-27f63169-95b5-41f5-adcd-5bc4f1bd002d",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "467a7943-c3c4-4db4-a127-61f2cdccd33e:kibanaSavedObjectMeta.searchSourceJSON.index",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "467a7943-c3c4-4db4-a127-61f2cdccd33e:kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+            "type": "index-pattern"
+        },
+        {
+            "id": "end_of_life-73a0d9c1-718e-43c6-b1f3-99062a2d6615",
+            "name": "467a7943-c3c4-4db4-a127-61f2cdccd33e:panel_467a7943-c3c4-4db4-a127-61f2cdccd33e",
+            "type": "search"
+        },
+        {
+            "id": "end_of_life-73a0d9c1-718e-43c6-b1f3-99062a2d6615",
+            "name": "467a7943-c3c4-4db4-a127-61f2cdccd33e:panel_467a7943-c3c4-4db4-a127-61f2cdccd33e",
+            "type": "search"
+        },
+        {
+            "id": "logs-*",
+            "name": "controlGroup_9eb2cf80-0d8e-4c25-b961-2af1ed6039ef:optionsListDataView",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "controlGroup_614f763e-e095-4003-97c0-d29b0c4b68b1:optionsListDataView",
+            "type": "index-pattern"
+        }
+    ],
+    "type": "dashboard",
+    "typeMigrationVersion": "10.3.0",
+    "updated_by": "u_mGBROF_q5bmFCATbLXAcCwKa0k8JvONAwSruelyKA5E_0"
+}
