@@ -4,10 +4,10 @@
             "end_of_life.label",
             "end_of_life.labels.eoas",
             "end_of_life.labels.eol",
-            "end_of_life.release.label",
-            "end_of_life.release.isEoas",
-            "end_of_life.release.isEol",
-            "end_of_life.release.isMaintained"
+            "end_of_life.releases.label",
+            "end_of_life.releases.isEoas",
+            "end_of_life.releases.isEol",
+            "end_of_life.releases.isMaintained"
         ],
         "description": "This search contains details for all products in the End of Life project.",
         "grid": {},
@@ -53,8 +53,7 @@
         "title": "[End of Life] Products"
     },
     "coreMigrationVersion": "8.8.0",
-    "created_at": "2025-08-28T21:18:48.884Z",
-    "created_by": "u_mGBROF_q5bmFCATbLXAcCwKa0k8JvONAwSruelyKA5E_0",
+    "created_at": "2025-08-29T11:48:27.847Z",
     "id": "end_of_life-73a0d9c1-718e-43c6-b1f3-99062a2d6615",
     "references": [
         {
@@ -69,6 +68,5 @@
         }
     ],
     "type": "search",
-    "typeMigrationVersion": "10.5.0",
-    "updated_by": "u_mGBROF_q5bmFCATbLXAcCwKa0k8JvONAwSruelyKA5E_0"
+    "typeMigrationVersion": "10.5.0"
 }

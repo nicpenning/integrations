@@ -32,6 +32,30 @@ processors:
   #- json:
   #    field: event.original
   #    target_field: end_of_life
+  - date:
+      field: end_of_life.releases.eoasFrom
+      formats:
+        - YYYY-MM-DD
+      if: ctx.end_of_life?.releases?.eoasFrom != null
+      target_field: end_of_life.releases.eoasFrom
+  - date:
+      field: end_of_life.releases.eolFrom
+      formats:
+        - YYYY-MM-DD
+      if: ctx.end_of_life?.releases?.eolFrom != null
+      target_field: end_of_life.releases.eolFrom
+  - date:
+      field: end_of_life.releases.latest.date
+      formats:
+        - YYYY-MM-DD
+      if: ctx.end_of_life?.releases?.latest?.date != null
+      target_field: end_of_life.releases.latest.date
+  - date:
+      field: end_of_life.releases.releaseDate
+      formats:
+        - YYYY-MM-DD
+      if: ctx.end_of_life?.releases?.releaseDate != null
+      target_field: end_of_life.releases.releaseDate
   ######################
   # Cleanup processors #
   ######################

@@ -60,7 +60,7 @@
           type: keyword
           description: URL to the release policy.
     - name: releases
-      type: nested
+      type: group
       description: List of releases for the product.
       fields:
         - name: name
